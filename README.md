@@ -134,7 +134,7 @@ INSERT INTO pedido VALUES(16, 2389.23, '2019-03-11', 1, 5);
     |      1
     |      8
 
-4. Devuelve un listado de todos los pedidos que se realizaron durante el año 2017, cuya cantidad total sea superior a 500€.
+5. Devuelve un listado de todos los pedidos que se realizaron durante el año 2017, cuya cantidad total sea superior a 500€.
 
     ``` sql
     SELECT * FROM pedido WHERE extract(year FROM fecha) = 2017 AND total>500;
@@ -148,7 +148,7 @@ INSERT INTO pedido VALUES(16, 2389.23, '2019-03-11', 1, 5);
     8 | 1983.43 | 2017-10-10 |          4 |            6
     12 |  3045.6 | 2017-04-25 |          2 |            1
 
-5. Devuelve un listado con el nombre y los apellidos de los comerciales que tienen una comisión entre 0.05 y 0.11.
+6. Devuelve un listado con el nombre y los apellidos de los comerciales que tienen una comisión entre 0.05 y 0.11.
 
     ``` sql
     SELECT nombre || ' ' || apellido1 || ' ' || COALESCE(apellido2, '') AS comercial FROM comercial WHERE comision BETWEEN 0.05 AND 0.11;
@@ -161,7 +161,7 @@ INSERT INTO pedido VALUES(16, 2389.23, '2019-03-11', 1, 5);
     Antonio Vega Hernández
     Alfredo Ruiz Flores
 
-6. Devuelve el valor de la comisión de mayor valor que existe en la tabla `comercial`.
+7. Devuelve el valor de la comisión de mayor valor que existe en la tabla `comercial`.
 
     ``` sql
     SELECT MAX(comision) FROM comercial;
@@ -170,10 +170,10 @@ INSERT INTO pedido VALUES(16, 2389.23, '2019-03-11', 1, 5);
     <center>
 
     | max
-    ------
-    0.15
+    |------
+    |0.15
 
-7. Devuelve el identificador, nombre y primer apellido de aquellos cuyo segundo apellido **no** es ` NULL `. El listado deberá estar ordenado alfabéticamente por apellidos y nombre.
+8. Devuelve el identificador, nombre y primer apellido de aquellos cuyo segundo apellido **no** es ` NULL `. El listado deberá estar ordenado alfabéticamente por apellidos y nombre.
 
     ``` sql
     SELECT id, nombre || ' ' || apellido1 AS cliente FROM cliente WHERE apellido2 IS NOT NULL ORDER BY apellido1, nombre;
@@ -192,7 +192,7 @@ INSERT INTO pedido VALUES(16, 2389.23, '2019-03-11', 1, 5);
     10 | Daniel Santana
     6 | María Santana
 
-8. Devuelve un listado de los nombres de los clientes que empiezan por `A` y terminan por `n` y también los nombres que empiezan por `P`. El listado deberá estar ordenado alfabéticamente.
+9. Devuelve un listado de los nombres de los clientes que empiezan por `A` y terminan por `n` y también los nombres que empiezan por `P`. El listado deberá estar ordenado alfabéticamente.
 
     ``` sql
     SELECT nombre FROM cliente WHERE nombre LIKE 'A%n' OR nombre LIKE 'P%' ORDER BY nombre;
@@ -207,7 +207,7 @@ INSERT INTO pedido VALUES(16, 2389.23, '2019-03-11', 1, 5);
     Pepe
     Pilar
 
-9. Devuelve un listado de los nombres de los cleintes que **no** empiezan por `A`. El listado deberá estar ordenado alfabéticamente.
+10. Devuelve un listado de los nombres de los cleintes que **no** empiezan por `A`. El listado deberá estar ordenado alfabéticamente.
 
     ``` sql
     SELECT nombre FROM cliente WHERE nombre NOT LIKE 'A%' ORDER BY nombre;
@@ -224,7 +224,7 @@ INSERT INTO pedido VALUES(16, 2389.23, '2019-03-11', 1, 5);
     Pepe
     Pilar
 
-10. Devuelve un listado con los nombres de los comerciales que terminan por `el` o `o`. Tenga en cuenta que se deberán eliminar los nombres repetidos.
+11. Devuelve un listado con los nombres de los comerciales que terminan por `el` o `o`. Tenga en cuenta que se deberán eliminar los nombres repetidos.
 
     ``` sql
     SELECT DISTINCT nombre FROM comercial WHERE nombre LIKE '%el' OR nombre LIKE '%o';
